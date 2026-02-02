@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark AI — AI That Closes Deals While You Sleep</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Spark</span>
+            <span class="logo-tag">AI for Real Estate</span>
+        </div>
+
+        <!-- Wizard Container -->
+        <div class="wizard" id="wizard">
+
+            <!-- Step 0: Welcome -->
+            <div class="step active" data-step="0">
+                <h1>The first truly helpful artificial intelligence.</h1>
+                <p class="subtitle">What if AI could follow up with every lead instantly, handle your admin, and give you back 15+ hours a week — while you focus on closing?</p>
+                <p class="subtitle" style="margin-bottom: 28px; color: rgba(255,255,255,0.4); font-size: 14px;">Take a free 2-minute assessment. See exactly where you're leaving money on the table.</p>
+                <div class="social-proof">
+                    <span>🏠</span> Built for real estate agents who do it all
+                </div>
+                <button class="btn btn-primary" onclick="nextStep()">See What I'm Missing →</button>
+            </div>
+
+            <!-- Step 1: Role -->
+            <div class="step" data-step="1">
+                <h2>Which sounds most like you?</h2>
+                <p class="subtitle">No wrong answers — this shapes your report</p>
+                <div class="options" data-field="role">
+                    <button class="option-btn" data-value="solo">🏠 I'm a solo agent — I do everything myself</button>
+                    <button class="option-btn" data-value="new">🌱 I'm newer and still building my business</button>
+                    <button class="option-btn" data-value="team-lead">👥 I run a small team</button>
+                    <button class="option-btn" data-value="brokerage">🏢 I manage a brokerage or office</button>
+                    <button class="option-btn" data-value="tc">📋 I'm a transaction coordinator</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Volume -->
+            <div class="step" data-step="2">
+                <h2>How many transactions did you close last year?</h2>
+                <p class="subtitle">Ballpark is fine</p>
+                <div class="options" data-field="volume">
+                    <button class="option-btn" data-value="0-5">📊 0–5 deals</button>
+                    <button class="option-btn" data-value="6-15">📊 6–15 deals</button>
+                    <button class="option-btn" data-value="16-30">📈 16–30 deals</button>
+                    <button class="option-btn" data-value="31-50">🔥 31–50 deals</button>
+                    <button class="option-btn" data-value="50+">🚀 50+ deals</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Lead Sources -->
+            <div class="step" data-step="3">
+                <h2>Where do your leads come from?</h2>
+                <p class="subtitle">Select all that apply</p>
+                <div class="options multi" data-field="leadSources">
+                    <button class="option-btn" data-value="zillow">🟡 Zillow / Realtor.com</button>
+                    <button class="option-btn" data-value="referrals">🤝 Referrals & Sphere</button>
+                    <button class="option-btn" data-value="social">📱 Social Media / Ads</button>
+                    <button class="option-btn" data-value="openhouse">🏡 Open Houses</button>
+                    <button class="option-btn" data-value="farming">📬 Geographic Farming / Mailers</button>
+                    <button class="option-btn" data-value="website">🌐 Personal Website / IDX</button>
+                    <button class="option-btn" data-value="cold">📞 Cold Calling / Door Knocking</button>
+                    <button class="option-btn" data-value="brokerage-leads">🏢 Brokerage-Provided Leads</button>
+                </div>
+                <button class="btn btn-primary mt-20" onclick="nextStep()">Continue →</button>
+            </div>
+
+            <!-- Step 4: CRM -->
+            <div class="step" data-step="4">
+                <h2>What CRM do you use?</h2>
+                <p class="subtitle">No judgment if the answer is "spreadsheet"</p>
+                <div class="options" data-field="crm">
+                    <button class="option-btn" data-value="followupboss">Follow Up Boss</button>
+                    <button class="option-btn" data-value="kvcore">KVCore</button>
+                    <button class="option-btn" data-value="sierra">Sierra Interactive</button>
+                    <button class="option-btn" data-value="chime">Chime</button>
+                    <button class="option-btn" data-value="liondesk">LionDesk</button>
+                    <button class="option-btn" data-value="hubspot">HubSpot</button>
+                    <button class="option-btn" data-value="other-crm">Other CRM</button>
+                    <button class="option-btn" data-value="spreadsheet">📊 Spreadsheet / Google Sheets</button>
+                    <button class="option-btn" data-value="none">😬 Nothing... yet</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Biggest Time Drains -->
+            <div class="step" data-step="5">
+                <h2>What eats most of your time?</h2>
+                <p class="subtitle">Pick your top 3 time killers</p>
+                <div class="options multi" data-field="timeDrains">
+                    <button class="option-btn" data-value="lead-followup">📱 Following up with leads</button>
+                    <button class="option-btn" data-value="admin">📋 Paperwork & admin</button>
+                    <button class="option-btn" data-value="content">✍️ Writing listings, posts, emails</button>
+                    <button class="option-btn" data-value="scheduling">📅 Scheduling showings & meetings</button>
+                    <button class="option-btn" data-value="transaction">📑 Transaction coordination</button>
+                    <button class="option-btn" data-value="crm-updates">🔄 Updating CRM / data entry</button>
+                    <button class="option-btn" data-value="marketing">📣 Marketing & social media</button>
+                    <button class="option-btn" data-value="prospecting">🔍 Prospecting & cold outreach</button>
+                    <button class="option-btn" data-value="client-comms">💬 Client communication & check-ins</button>
+                </div>
+                <button class="btn btn-primary mt-20" onclick="nextStep()">Continue →</button>
+            </div>
+
+            <!-- Step 6: Lead Response -->
+            <div class="step" data-step="6">
+                <h2>A new lead comes in while you're at a showing. How fast do they hear back?</h2>
+                <p class="subtitle">78% of buyers go with the first agent who responds</p>
+                <div class="options" data-field="responseTime">
+                    <button class="option-btn" data-value="instant">⚡ Within 5 minutes — I'm on it</button>
+                    <button class="option-btn" data-value="hour">🕐 Within an hour usually</button>
+                    <button class="option-btn" data-value="hours">🕓 A few hours... when I get a break</button>
+                    <button class="option-btn" data-value="nextday">📅 Sometimes not until the next day</button>
+                    <button class="option-btn" data-value="depends">🤷 Honestly? I've lost leads to this</button>
+                </div>
+            </div>
+
+            <!-- Step 7: Database Size -->
+            <div class="step" data-step="7">
+                <h2>How many contacts are in your database?</h2>
+                <p class="subtitle">Past clients, leads, sphere — everyone</p>
+                <div class="options" data-field="databaseSize">
+                    <button class="option-btn" data-value="under100">📇 Under 100</button>
+                    <button class="option-btn" data-value="100-500">📇 100–500</button>
+                    <button class="option-btn" data-value="500-1000">📚 500–1,000</button>
+                    <button class="option-btn" data-value="1000-5000">📚 1,000–5,000</button>
+                    <button class="option-btn" data-value="5000+">🗄️ 5,000+</button>
+                </div>
+            </div>
+
+            <!-- Step 8: Dream -->
+            <div class="step" data-step="8">
+                <h2>If you got 15 hours back every week, what would you actually do with it?</h2>
+                <p class="subtitle">Be selfish — what matters to you?</p>
+                <div class="options" data-field="dream">
+                    <button class="option-btn" data-value="more-deals">🔥 Close more deals and make more money</button>
+                    <button class="option-btn" data-value="clients">🤝 Give my clients an incredible experience</button>
+                    <button class="option-btn" data-value="grow-team">👥 Finally build a team</button>
+                    <button class="option-btn" data-value="marketing">📈 Actually post on social media consistently</button>
+                    <button class="option-btn" data-value="life">🌴 See my family / have a life</button>
+                    <button class="option-btn" data-value="scale">🚀 Stop trading hours for dollars</button>
+                </div>
+            </div>
+
+            <!-- Step 9: AI Experience -->
+            <div class="step" data-step="9">
+                <h2>How much have you used AI?</h2>
+                <p class="subtitle">No wrong answer</p>
+                <div class="options" data-field="aiExperience">
+                    <button class="option-btn" data-value="none">🌱 Haven't really tried it</button>
+                    <button class="option-btn" data-value="chatgpt">🔰 Played with ChatGPT</button>
+                    <button class="option-btn" data-value="some">⚡ Use it for some tasks</button>
+                    <button class="option-btn" data-value="regular">🚀 Use it daily</button>
+                </div>
+            </div>
+
+            <!-- Step 10: Email Capture -->
+            <div class="step" data-step="10">
+                <h2>Almost done — where should we send your results?</h2>
+                <p class="subtitle">We'll show you your AI opportunity score and the #1 thing you should automate first</p>
+                <div class="input-group">
+                    <input type="text" id="userName" placeholder="First name" class="input-field">
+                    <input type="email" id="userEmail" placeholder="your@email.com" class="input-field">
+                    <input type="tel" id="userPhone" placeholder="Phone (optional — for your custom report)" class="input-field">
+                </div>
+                <button class="btn btn-primary mt-20" onclick="generateReport()">Show My Score →</button>
+                <p class="privacy-note">🔒 No spam. No selling your info. Just your results.</p>
+            </div>
+
+            <!-- Step 11: Results -->
+            <div class="step" data-step="11">
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results injected by JS -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back Button -->
+        <button class="back-btn" id="backBtn" onclick="prevStep()">← Back</button>
+
+    </div>
+
+    <!-- Hidden Netlify Form (detected at deploy time) -->
+    <form name="spark-assessment" netlify netlify-honeypot="bot-field" hidden>
+        <input name="bot-field">
+        <input name="name">
+        <input name="email">
+        <input name="phone">
+        <input name="role">
+        <input name="volume">
+        <input name="leadSources">
+        <input name="crm">
+        <input name="timeDrains">
+        <input name="responseTime">
+        <input name="databaseSize">
+        <input name="dream">
+        <input name="aiExperience">
+        <input name="sparkScore">
+        <input name="topOpportunity">
+        <input name="totalTimeSaved">
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>
